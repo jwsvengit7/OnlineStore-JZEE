@@ -1,0 +1,123 @@
+body {
+margin:0px
+}
+.app{
+    width:70%;
+    height:100vh;
+}
+
+nav{
+    width:15%
+}
+nav a{
+    text-decoration: none;
+    color: #003366;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+.login-form{
+    width: 50%;
+    height: auto;
+    padding: 10px;
+    box-shadow: 0 0 35px 0 rgb(154 161 171 / 15%);
+}
+.form-row{
+    width: 95%;
+    height: 45px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+}
+.form-row label{
+    width:80%;
+
+}
+.form-row label input{
+    width: 100%;
+    height: 42px;
+    border: 0px;
+    outline: none;
+}
+
+.login-form button{
+    width:95%;
+    height: 50px;
+    border: 0px;
+    color: white;
+    background:darkorange;
+    margin:30px 0 1px 10px;
+}
+label{
+    color: #003366;
+    padding-left: 13px;
+    font-family: sans-serif;
+    font-size: 14px;
+
+}
+.rgb{
+    width:100%;
+    height:100vh;
+    position: fixed;
+    display: none;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+}
+#img{
+    animation-name: img;
+    transition-duration: 1s;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+@keyframes img {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+
+}
+.app-design{
+    height:100vh;
+
+}
+.header-dashboard{
+    background: #232f3e;
+    width:100%;
+    height: 100px;
+    display: flex;
+}
+.img-div{
+    width:30%;
+    height:100px
+}
+.row-nav{
+    width:70%;
+    height:100vh
+}
+.row-nav a {
+    padding-left:15px;
+    color:white;
+    text-decoration: none;
+    font-size:15px
+
+}
+.main{
+  width:100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+@media(max-width:900px){
+    .app{
+        width:80%
+    }
+    .login-form{
+        width:100%
+    }
+}
