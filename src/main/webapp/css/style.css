@@ -97,13 +97,14 @@ label{
 }
 .row-nav{
     width:70%;
-    height:100vh
+    height:100px
 }
 .row-nav a {
     padding-left:15px;
     color:white;
     text-decoration: none;
-    font-size:15px
+    font-size:15px;
+    font-family: sans-serif;
 
 }
 .main{

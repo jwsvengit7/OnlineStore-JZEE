@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 @WebServlet(name ="LoginController",value = "/LoginController")
 public class LoginController extends HttpServlet {
-     Userdao userdao;
+     private Userdao userdao;
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -20,24 +20,35 @@ public class LoginController extends HttpServlet {
         String password = request.getParameter("password");
         Login loginRequest = new Login(email, password);
         String Id;
+
+
         try {
             userdao = new Userdao();
             Id = userdao.getUserId(email,password);
-            boolean checked;
-            checked = userdao.loginUser(loginRequest);
-            if (checked) {
-                HttpSession session = request.getSession();
-                session.setAttribute("email", email);
-                session.setAttribute("Id_session", Id);
-
-                response.sendRedirect("User/index.jsp");
-
-            } else {
-                request.getRequestDispatcher("/register.jsp").forward(request, response);
-            }
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        boolean checked;
+        try {
+            userdao = new Userdao();
+                checked = userdao.loginUser(email,password);
+                if (checked){
+                    String isLogin="isLogin";
+                    HttpSession session = request.getSession();
+                    session.setAttribute("email", email);
+                    session.setAttribute("Id_session", Id);
+                    response.sendRedirect("/User/index.jsp?isLogin="+ isLogin);
+                }
+
+             else {
+                request.getRequestDispatcher("/register.jsp").forward(request, response);
+            }
+            } catch (SQLException | ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+
+
+
 
 
     }

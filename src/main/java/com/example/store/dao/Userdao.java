@@ -61,17 +61,17 @@ public class Userdao {
         }
     }
 
-    public boolean loginUser(Login user) throws SQLException, ClassNotFoundException {
+    public boolean loginUser(String name, String password) throws SQLException, ClassNotFoundException {
         boolean status= false;
         Query query=new Query();
 
-            PreparedStatement preparedStatement = connection.prepareStatement(query.getQuery());
-            preparedStatement.setString(1, user.getEmail());
-            preparedStatement.setString(2, user.getPassword());
-            ResultSet resultSet = preparedStatement.executeQuery();
+            PreparedStatement statement = connection.prepareStatement(query.getQuery());
+            statement.setString(1, name);
+            statement.setString(2, password);
+            ResultSet resultSet = statement.executeQuery();
             if(resultSet.next()){
                 status = true;
-                preparedStatement.close();
+                statement.close();
             }
 
             return status;
@@ -106,9 +106,9 @@ public class Userdao {
         Userdao userdao = new Userdao();
         Query query=new Query();
         System.out.println(query.getQuery());
-        System.out.println(userdao.insertUser(new AppUser("dsfdf","chi@gmail.com","12345"))+" is login");
-        System.out.println(userdao.loginUser(new Login("chi@gmail.com","12345"))+" is login");
-        System.out.println(userdao.getUserId("chi@gmail.com","12345"));
+
+        System.out.println(userdao.loginUser("chiorlujack@gmail.com","12345"));
+        System.out.println(userdao.getUserId("chiorlujack@gmail.com","12345"));
 
     }
 

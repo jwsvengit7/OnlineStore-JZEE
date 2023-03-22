@@ -24,16 +24,18 @@
 
 <div>
     <header class="header-dashboard display justify-space-around">
-        <div class="img-div">
+        <div class="img-div display justify-content align-items">
             <img src="https://salespoint.com.ng/app/images/logo.png" width="100" />
         </div>
         <div class="row-nav display justify-content align-items">
-            <a>Home</a>
-            <a>Cart</a>
-            <a>Product</a>
+            <a><span class="fa fa-home f17 "></span>&nbsp;&nbsp;Home</a>
+            <a><span class="fa fa-shopping-cart f17 "></span>&nbsp;&nbsp;Cart</a>
+            <a href="logout.jsp"><span class="fa fa-sign-out-alt f17 "></span>&nbsp;&nbsp;Logout</a>
         </div>
     </header>
     <main class="main">
+
+
 
     </main>
 </div>
